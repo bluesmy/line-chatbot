@@ -50,6 +50,19 @@ def handle_message(event):
             sticker_message)
         return
 
+    if '地點' in msg:
+        location_message = LocationSendMessage(
+            title='my location',
+            address='Tokyo',
+            latitude=35.65910807942215,
+            longitude=139.70372892916203
+        )
+
+        line_bot_api.reply_message(
+            event.reply_token,
+            location_message)
+        return
+
     if msg in ['hi', 'Hi']:
         r = '嗨'
     elif msg == '你吃飯了嗎':
